@@ -57,10 +57,10 @@ public class SingleLinkList {
             currentNode = currentNode.next;
             if (node.val == currentNode.val) {
                 preNode.next = preNode.next.next;
-                break;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     /**
@@ -85,10 +85,10 @@ public class SingleLinkList {
                     node.next = currentNode.next;
                     currentNode.next = node;
                 }
-                break;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     /**
