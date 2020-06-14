@@ -2,6 +2,8 @@
  * @author ruettiger
  * @version V1.0
  * 学习数据结构和算法优先要精通常用数据结构，这是一个单链表数据结构练习
+ * 1.单链表只要不改变后继next指向，就不会变更原始数据
+ * 2.初始化，增，删，插入，查等基本操作
  * javadoc -d SingleLinkListDoc -author -version SingleLinkList.java
  */
 public class SingleLinkList {
@@ -29,22 +31,8 @@ public class SingleLinkList {
     }
 
     /**
-     * 删掉指定节点
-     * @param node
-     */
-    public void deleteNode(SingleLinkList node) {
-        SingleLinkList currentNode = this;
-        while (currentNode.next != null) {
-            if (currentNode.val == node.val) {
-                currentNode = currentNode.next;
-                break;
-            }
-            currentNode = currentNode.next;
-        }
-    }
-
-    /**
      * 添加节点
+     *
      * @param node
      */
     public void addNode(SingleLinkList node) {
@@ -56,11 +44,51 @@ public class SingleLinkList {
     }
 
     /**
-     * 插入节点
+     * 删掉指定节点
+     *
      * @param node
      */
-    public void insertNode(SingleLinkList node) {
+    public boolean deleteNode(SingleLinkList node) {
+        if (node == null) return false;
+        SingleLinkList preNode = null;
+        SingleLinkList currentNode = this;
+        while (currentNode.next != null) {
+            preNode = currentNode;
+            currentNode = currentNode.next;
+            if (node.val == currentNode.val) {
+                preNode.next = preNode.next.next;
+                break;
+            }
+        }
+        return true;
+    }
 
+    /**
+     * 插入节点
+     *
+     * @param positionNode
+     * @param before
+     * @return
+     */
+    public boolean insertNode(SingleLinkList positionNode, SingleLinkList node, boolean before) {
+        if (node == null) return false;
+        SingleLinkList preNode = null;
+        SingleLinkList currentNode = this;
+        while (currentNode.next != null) {
+            preNode = currentNode;
+            currentNode = currentNode.next;
+            if (positionNode.val == currentNode.val) {
+                if (before) {
+                    node.next = currentNode;
+                    preNode.next = node;
+                } else {
+                    node.next = currentNode.next;
+                    currentNode.next = node;
+                }
+                break;
+            }
+        }
+        return true;
     }
 
     /**
@@ -69,8 +97,9 @@ public class SingleLinkList {
     public void printLinkList() {
         SingleLinkList head = this;
         while (head != null) {
-            System.out.println(head.val);
+            System.out.print(head.val + ",");
             head = head.next;
         }
+        System.out.println();
     }
 }

@@ -12,5 +12,9 @@ public class main {
         singleLinkList.printLinkList();
         singleLinkList.deleteNode(new SingleLinkList(3));
         singleLinkList.printLinkList();
+        singleLinkList.insertNode(new SingleLinkList(2),new SingleLinkList(7), true);
+        singleLinkList.printLinkList();
+        singleLinkList.insertNode(new SingleLinkList(4),new SingleLinkList(6), false);
+        singleLinkList.printLinkList();
     }
 }
