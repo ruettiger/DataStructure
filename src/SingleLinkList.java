@@ -1,3 +1,8 @@
+/**
+ * @author ruettiger
+ * @version V1.0
+ * 学习数据结构和算法优先要精通常用数据结构，这是一个单链表数据结构练习
+ */
 public class SingleLinkList {
     int val;
     SingleLinkList next;
@@ -22,17 +27,25 @@ public class SingleLinkList {
         this.next = next;
     }
 
+    /**
+     * 删掉指定节点
+     * @param node
+     */
     public void deleteNode(SingleLinkList node) {
         SingleLinkList currentNode = this;
         while (currentNode.next != null) {
             if (currentNode.val == node.val) {
-                currentNode.next = currentNode.next.next;
+                currentNode = currentNode.next;
                 break;
             }
             currentNode = currentNode.next;
         }
     }
 
+    /**
+     * 添加节点
+     * @param node
+     */
     public void addNode(SingleLinkList node) {
         SingleLinkList currentNode = this;
         while (currentNode.next != null) {
@@ -41,10 +54,17 @@ public class SingleLinkList {
         currentNode.next = node;
     }
 
+    /**
+     * 插入节点
+     * @param node
+     */
     public void insertNode(SingleLinkList node) {
 
     }
 
+    /**
+     * 打印链表节点的值
+     */
     public void printLinkList() {
         SingleLinkList head = this;
         while (head != null) {
