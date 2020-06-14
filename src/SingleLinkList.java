@@ -2,6 +2,7 @@
  * @author ruettiger
  * @version V1.0
  * 学习数据结构和算法优先要精通常用数据结构，这是一个单链表数据结构练习
+ * javadoc -d SingleLinkListDoc -author -version SingleLinkList.java
  */
 public class SingleLinkList {
     int val;
