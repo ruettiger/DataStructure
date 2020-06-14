@@ -33,7 +33,7 @@ public class SingleLinkList {
     /**
      * 添加节点
      *
-     * @param node
+     * @param node 添加节点
      */
     public void addNode(SingleLinkList node) {
         SingleLinkList currentNode = this;
@@ -46,7 +46,8 @@ public class SingleLinkList {
     /**
      * 删掉指定节点
      *
-     * @param node
+     * @param node 删除指定节点
+     * @return 删除成功true或者失败false
      */
     public boolean deleteNode(SingleLinkList node) {
         if (node == null) return false;
@@ -66,9 +67,9 @@ public class SingleLinkList {
     /**
      * 插入节点
      *
-     * @param positionNode
-     * @param before
-     * @return
+     * @param positionNode 插入目标节点
+     * @param before       目标节点之前或者之后
+     * @return 插入成功true或者失败false
      */
     public boolean insertNode(SingleLinkList positionNode, SingleLinkList node, boolean before) {
         if (node == null) return false;
