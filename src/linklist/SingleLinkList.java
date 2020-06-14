@@ -1,3 +1,5 @@
+package linklist;
+
 /**
  * @author ruettiger
  * @version V1.0
